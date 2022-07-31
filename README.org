@@ -1,0 +1,22 @@
+* Goals
+** TODO Rank [2/5]
+- [X] Convert to integer 0-12
+- [X] Convert from integer
+- [ ] Compare with other Ranks
+- [ ] Convert to char
+- [ ] Convert from char
+** TODO Suit [2/5]
+- [X] Convert to integer 0-3
+- [X] Convert from integer
+- [ ] Compare with other Suits
+- [ ] Convert to char
+- [ ] Convert from char
+** TODO Card [0/5]
+- [ ] Convert to integer 0-51
+- [ ] Convert from integer
+- [ ] Compare with other Cards
+- [ ] Convert to String
+- [ ] Convert from String
+** TODO Set of Cards
+** TODO NLHE hand strength evaluation
+** TODO Game decision tree
