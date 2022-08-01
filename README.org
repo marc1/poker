@@ -1,6 +1,6 @@
 * Goals
-** TODO Rank [0/4]
-- [ ] Compare with other Ranks
+** TODO Rank [1/4]
+- [X] Compare with other Ranks
   For evaluation and sorting
   
 - [ ] Get numerical difference between Ranks
@@ -8,17 +8,18 @@
   
 - [ ] impl Display
 
-- [ ] Range syntax
-** TODO Suit [0/2]
-- [ ] Compare with other Suits
+** TODO Suit [1/2]
+- [X] Compare with other Suits
   For sorting
   
 - [ ] impl Display
-** TODO Card [0/1]
-- [ ] Compare with other Cards
+** TODO Card [1/3]
+- [X] Compare with other Cards
   For evaluation and sorting
   
-- [ ] impl Display 
+- [ ] impl Display
+
+- [ ] Use single 'u8' representation
 ** TODO Deck Structure [0/3]
 - [ ] Notion of card removal
   How? Option<Card>?
