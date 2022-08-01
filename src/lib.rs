@@ -1,9 +1,6 @@
 #![allow(warnings)]
 
-use std::{
-    cmp::Ordering,
-    fmt::Display
-};
+use std::{cmp::Ordering, fmt::Display};
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
 enum Rank {
@@ -64,16 +61,39 @@ impl Ord for Card {
 
 #[cfg(test)]
 mod tests {
-    use crate::{Rank, Suit, Card};
+    use crate::{Card, Rank, Suit};
 
     #[test]
     fn card_cmp() {
-        let c1 = Card { rank: Rank::Ace, suit: Suit::Spade };
-        let c2 = Card { rank: Rank::Ace, suit: Suit::Club };
+        let c1 = Card {
+            rank: Rank::Ace,
+            suit: Suit::Spade,
+        };
+        let c2 = Card {
+            rank: Rank::Ace,
+            suit: Suit::Club,
+        };
 
-        let c3 = Card { rank: Rank::Ten, suit: Suit::Spade };
+        let c3 = Card {
+            rank: Rank::Ten,
+            suit: Suit::Spade,
+        };
 
         assert!(c1 > c2);
         assert!(c2 > c3);
+    }
+
+    #[test]
+    fn deck() {
+        let deck: Vec<Card> = (0u8..52)
+            .map(|i| Card {
+                rank: unsafe { std::mem::transmute(i / 4) },
+                suit: unsafe { std::mem::transmute(i % 4) },
+            })
+            .collect();
+
+        for x in deck {
+            println!("{x:?}");
+        }
     }
 }
