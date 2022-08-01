@@ -1,6 +1,6 @@
 #![allow(warnings)]
 
-use std::{cmp::Ordering, fmt::Display};
+use std::{cmp::Ordering, fmt::{self, Display}};
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
 enum Rank {
@@ -19,12 +19,43 @@ enum Rank {
     Ace,
 }
 
+impl Display for Rank {
+    fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
+        write!(f, "{}", match self {
+            Self::Two => '2',
+            Self::Three => '3',
+            Self::Four => '4',
+            Self::Five => '5',
+            Self::Six => '6',
+            Self::Seven => '7',
+            Self::Eight => '8',
+            Self::Nine => '9',
+            Self::Ten => 'T',
+            Self::Jack => 'J',
+            Self::Queen => 'Q',
+            Self::King => 'K',
+            Self::Ace => 'A'
+        })
+    }
+}
+
 #[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
 enum Suit {
     Club,
     Diamond,
     Heart,
     Spade,
+}
+
+impl Display for Suit {
+    fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
+        write!(f, "{}", match self {
+            Self::Club => 'c',
+            Self::Diamond => 'd',
+            Self::Heart => 'h',
+            Self::Spade => 's',
+        })
+    }
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
@@ -40,6 +71,12 @@ impl Card {
 
     fn suit(self) -> Suit {
         self.suit
+    }
+}
+
+impl Display for Card {
+    fn fmt(&self, f: &mut fmt::Formatter) -> Result<(), fmt::Error> {
+        write!(f, "{}{}", self.rank(), self.suit())
     }
 }
 
@@ -93,7 +130,7 @@ mod tests {
             .collect();
 
         for x in deck {
-            println!("{x:?}");
+            println!("{x}");
         }
     }
 }
