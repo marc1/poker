@@ -1,22 +1,30 @@
 * Goals
-** TODO Rank [2/5]
-- [X] Convert to integer 0-12
-- [X] Convert from integer
+** TODO Rank [0/4]
 - [ ] Compare with other Ranks
-- [ ] Convert to char
-- [ ] Convert from char
-** TODO Suit [2/5]
-- [X] Convert to integer 0-3
-- [X] Convert from integer
+  For evaluation and sorting
+  
+- [ ] Get numerical difference between Ranks
+  Is this even necessary?
+  
+- [ ] impl Display
+
+- [ ] Range syntax
+** TODO Suit [0/2]
 - [ ] Compare with other Suits
-- [ ] Convert to char
-- [ ] Convert from char
-** TODO Card [0/5]
-- [ ] Convert to integer 0-51
-- [ ] Convert from integer
+  For sorting
+  
+- [ ] impl Display
+** TODO Card [0/1]
 - [ ] Compare with other Cards
-- [ ] Convert to String
-- [ ] Convert from String
+  For evaluation and sorting
+  
+- [ ] impl Display 
+** TODO Deck Structure [0/3]
+- [ ] Notion of card removal
+  How? Option<Card>?
+- [ ] Indexed 0-51
+  Good idea? How about a Bitset?
+  A deck is technically a set of Cards
 ** TODO Set of Cards
 ** TODO NLHE hand strength evaluation
 ** TODO Game decision tree
