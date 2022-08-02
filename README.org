@@ -1,31 +1,32 @@
 * Goals
-** TODO Rank [1/4]
+** TODO Rank [2/2]
 - [X] Compare with other Ranks
   For evaluation and sorting
   
-- [ ] Get numerical difference between Ranks
-  Is this even necessary?
-  
-- [ ] impl Display
+- [X] impl Display
 
-** TODO Suit [1/2]
+** TODO Suit [2/2]
 - [X] Compare with other Suits
   For sorting
   
-- [ ] impl Display
-** TODO Card [1/3]
+- [X] impl Display
+** TODO Card [3/3]
 - [X] Compare with other Cards
   For evaluation and sorting
   
-- [ ] impl Display
+- [X] impl Display
 
-- [ ] Use single 'u8' representation
-** TODO Deck Structure [0/3]
-- [ ] Notion of card removal
-  How? Option<Card>?
-- [ ] Indexed 0-51
-  Good idea? How about a Bitset?
-  A deck is technically a set of Cards
+- [X] Use single 'u8' representation
 ** TODO Set of Cards
+Example of sets of cards:
+- Combos (HoldEm combo n=2, Omaha combo n=4, etc)
+- Flop/Turn/River
+- Deck
+
+
+It would be nice for all of these things to be the same type.
+CardSet can be generic over the size of the set
+
+** TODO Ranges (set of Combos)
 ** TODO NLHE hand strength evaluation
 ** TODO Game decision tree
