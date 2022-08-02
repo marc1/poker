@@ -59,18 +59,19 @@ impl Display for Suit {
 }
 
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
-struct Card {
-    rank: Rank,
-    suit: Suit,
-}
+struct Card(u8);
 
 impl Card {
+    fn new(rank: Rank, suit: Suit) -> Self {
+        Self((rank as u8) | ((suit as u8) << 4))
+    }
+    
     fn rank(self) -> Rank {
-        self.rank
+        unsafe { std::mem::transmute(self.0 & 0b1111) }
     }
 
     fn suit(self) -> Suit {
-        self.suit
+        unsafe { std::mem::transmute(self.0 >> 4) }
     }
 }
 
@@ -102,19 +103,9 @@ mod tests {
 
     #[test]
     fn card_cmp() {
-        let c1 = Card {
-            rank: Rank::Ace,
-            suit: Suit::Spade,
-        };
-        let c2 = Card {
-            rank: Rank::Ace,
-            suit: Suit::Club,
-        };
-
-        let c3 = Card {
-            rank: Rank::Ten,
-            suit: Suit::Spade,
-        };
+        let c1 = Card::new(Rank::Ace, Suit::Spade);
+        let c2 = Card::new(Rank::Ace, Suit::Club);
+        let c3 = Card::new(Rank::Ten, Suit::Spade);
 
         assert!(c1 > c2);
         assert!(c2 > c3);
@@ -123,10 +114,10 @@ mod tests {
     #[test]
     fn deck() {
         let deck: Vec<Card> = (0u8..52)
-            .map(|i| Card {
-                rank: unsafe { std::mem::transmute(i / 4) },
-                suit: unsafe { std::mem::transmute(i % 4) },
-            })
+            .map(|i| Card::new(
+                unsafe { std::mem::transmute(i / 4) },
+                unsafe { std::mem::transmute(i % 4) },
+            ))
             .collect();
 
         for x in deck {
