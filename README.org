@@ -1,4 +1,4 @@
-* Goals
+* Basic structures
 ** TODO Rank [2/2]
 - [X] Compare with other Ranks
   For evaluation and sorting
@@ -17,16 +17,7 @@
 - [X] impl Display
 
 - [X] Use single 'u8' representation
-** TODO Set of Cards
-Example of sets of cards:
-- Combos (HoldEm combo n=2, Omaha combo n=4, etc)
-- Flop/Turn/River
-- Deck
+* Not-so-basic structures
+** TODO Sets of Cards
+- [X] Develop interface around ~Vec<Card>~
 
-
-It would be nice for all of these things to be the same type.
-CardSet can be generic over the size of the set
-
-** TODO Ranges (set of Combos)
-** TODO NLHE hand strength evaluation
-** TODO Game decision tree
