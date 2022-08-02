@@ -1,3 +1,5 @@
+#![allow(warnings)]
+
 mod game;
 
 #[cfg(test)]

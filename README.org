@@ -19,5 +19,10 @@
 - [X] Use single 'u8' representation
 * Not-so-basic structures
 ** TODO Sets of Cards
-- [X] Develop interface around ~Vec<Card>~
+Properties of this type:
+- No duplicates
+- Order does not matter
+  
+- [X] Develop interface around ~HashSet<Card>~
+- [ ] Implement FromStr
 

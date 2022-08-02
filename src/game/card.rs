@@ -1,11 +1,9 @@
-#![allow(warnings)]
-
 use std::{
     cmp::Ordering,
     fmt::{self, Display},
 };
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Rank {
     Two,
     Three,
@@ -46,7 +44,7 @@ impl Display for Rank {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum Suit {
     Club,
     Diamond,
@@ -69,7 +67,7 @@ impl Display for Suit {
     }
 }
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
 pub struct Card(u8);
 
 impl Card {
@@ -120,20 +118,5 @@ mod tests {
 
         assert!(c1 > c2);
         assert!(c2 > c3);
-    }
-
-    #[test]
-    fn deck() {
-        let deck: Vec<Card> = (0u8..52)
-            .map(|i| {
-                Card::new(unsafe { std::mem::transmute(i / 4) }, unsafe {
-                    std::mem::transmute(i % 4)
-                })
-            })
-            .collect();
-
-        for x in deck {
-            println!("{x}");
-        }
     }
 }
